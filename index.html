@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI &amp; Humanity Conference</title>
+<meta name="description" content="AI &amp; Humanity Conference 2026, Cashmere Presbyterian Church, Christchurch. 28-29 August 2026.">
+<meta name="theme-color" content="#0B2440">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI &amp; Humanity">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  :root{
+    --navy:#0B2440;
+    --navy-dark:#05192F;
+    --blue:#1D4E7C;
+    --blue-soft:#5B8FBF;
+    --gold:#C9A45B;
+    --gold-deep:#8A6B22;
+    --sky:#9FC6E8;
+    --mist:#EEF2F7;
+    --paper:#FFFFFF;
+    --ink:#16202C;
+    --ink-soft:#57677A;
+    --line:#DBE3EC;
+    --slate:#3C5F86;
+    --amber:#9A6A1F;
+    --nav-h:64px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--mist);
+    color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom));
+    overscroll-behavior-y:contain;
+  }
+  img{max-width:100%;display:block}
+  button{font:inherit;color:inherit}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:linear-gradient(150deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff;
+    padding:calc(env(safe-area-inset-top) + 14px) 20px 14px;
+    border-bottom:2px solid var(--gold);
+  }
+  .h-inner{max-width:1040px;margin:0 auto}
+  .h-eyebrow{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:3px;
+  }
+  .h-title span{color:var(--gold)}
+
+  /* Poster banner (banner.webp / banner.jpg in this folder) */
+  .banner{
+    width:100%;aspect-ratio:978/462;object-fit:cover;
+    border-radius:16px;margin-bottom:16px;display:block;
+    background:var(--navy);
+    box-shadow:0 2px 10px rgba(11,36,64,.15);
+  }
+  .banner-wrap{
+    margin-bottom:16px;border-radius:16px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(11,36,64,.15);
+  }
+  .banner-wrap .banner{margin-bottom:0;border-radius:0;box-shadow:none}
+  .banner-strip{
+    display:flex;align-items:center;
+    background:var(--navy-dark);padding:12px 8px 11px;
+    border-top:1px solid rgba(201,164,91,.55);
+  }
+  .banner-strip span{
+    color:var(--gold);font-size:17px;line-height:1;
+    flex:1;text-align:center;border-right:1px solid rgba(201,164,91,.35);
+  }
+  .banner-strip span:last-child{border-right:none}
+  .h-title{font-size:19px;font-weight:700;letter-spacing:-.2px;line-height:1.2}
+  .h-sub{
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-top:4px;
+  }
+  .h-meta{font-size:12.5px;color:rgba(255,255,255,.78);margin-top:5px}
+
+  /* Poster pillars */
+  .pillars{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;margin-bottom:12px;
+  }
+  .pillar{
+    background:var(--navy);color:#fff;padding:14px 12px;text-align:center;
+  }
+  .pillar .p-ico{font-size:18px;color:var(--gold);line-height:1;margin-bottom:6px}
+  .pillar .p-txt{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+
+  /* ---------- Layout ---------- */
+  main{max-width:1040px;margin:0 auto}
+  .view{display:none;padding:18px 16px 28px;max-width:620px;margin:0 auto;animation:fade .22s ease}
+  .view.active{display:block}
+  #v-agenda{max-width:1040px}
+  @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+  /* Agenda two-column layout on wider screens */
+  .agenda-grid{display:block}
+  @media (min-width:900px){
+    .agenda-grid{
+      display:grid;grid-template-columns:minmax(0,1fr) 330px;
+      gap:30px;align-items:start;
+    }
+    .about-col{position:sticky;top:112px}
+    .about-col .section:first-child{margin-top:4px}
+  }
+
+  h2.section{
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:700;margin:26px 0 12px;
+  }
+  h2.section:first-child{margin-top:4px}
+
+  .card{
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:16px;padding:16px;margin-bottom:12px;
+  }
+  .card p:last-child{margin-bottom:0}
+  .card p:first-child{margin-top:0}
+
+  .note{
+    background:#F4F0E4;border:1px solid #E2D6B8;border-radius:14px;
+    border-left:4px solid var(--gold);
+    padding:14px 16px;font-size:14.5px;margin-bottom:14px;
+  }
+  .note strong{color:var(--navy)}
+
+  .btn{
+    display:block;width:100%;text-align:center;text-decoration:none;
+    background:var(--navy);color:#fff;font-weight:650;
+    padding:15px 18px;border:none;border-radius:14px;cursor:pointer;
+    box-shadow:0 2px 8px rgba(27,58,92,.22);
+  }
+  .btn:active{background:var(--navy-dark);transform:translateY(1px)}
+  .btn.secondary{
+    background:var(--paper);color:var(--navy);
+    border:1.5px solid var(--line);box-shadow:none;
+  }
+  .btn + .btn{margin-top:10px}
+
+  /* ---------- Day switch ---------- */
+  .dayswitch{
+    display:flex;gap:6px;background:#DDE4EE;padding:5px;border-radius:14px;margin-bottom:16px;
+  }
+  .dayswitch button{
+    flex:1;border:none;background:transparent;padding:10px 6px;border-radius:10px;
+    font-weight:650;font-size:14px;color:var(--ink-soft);cursor:pointer;line-height:1.3;
+  }
+  .dayswitch button small{display:block;font-size:11px;font-weight:500;opacity:.75}
+  .dayswitch button.on{
+    background:var(--paper);color:var(--navy);
+    box-shadow:0 1px 4px rgba(8,25,46,.14), inset 0 -2px 0 var(--gold);
+  }
+
+  /* ---------- Agenda ---------- */
+  .day{display:none}
+  .day.on{display:block}
+  .slot{
+    display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);
+  }
+  .slot:last-child{border-bottom:none}
+  .slot .time{
+    flex:0 0 62px;font-size:13px;font-weight:700;color:var(--gold-deep);
+    padding-top:1px;font-variant-numeric:tabular-nums;
+  }
+  .slot .body{flex:1;min-width:0}
+  .slot .name{font-weight:650;font-size:15.5px;line-height:1.35}
+  .slot .name strong{font-weight:inherit}
+  .slot .blurb{font-size:14px;color:var(--ink-soft);margin-top:5px}
+  .slot .wopt{
+    margin-top:7px;padding-left:11px;border-left:3px solid var(--gold);
+    font-size:14px;line-height:1.35;
+  }
+  .slot .wopt strong{display:block;font-weight:650;color:var(--ink)}
+  .slot .wopt .wroom{
+    display:block;font-style:normal;font-size:12.5px;color:var(--ink-soft);margin-top:1px;
+  }
+  .slot .wopt .wroom::before{content:"\1F4CD  ";font-size:10px}
+  .slot .wopt .wnote{
+    display:block;font-style:italic;font-size:12.5px;color:var(--ink-soft);margin-top:2px;
+  }
+  .slot .wopt span{font-size:13px;color:var(--slate);font-weight:600}
+
+  .slot .aud{font-size:13px;color:var(--ink-soft);font-style:italic;margin-top:5px}
+
+  .slot .where{font-size:13px;color:var(--ink-soft);margin-top:4px}
+  .slot .where::before{content:"\1F4CD  ";font-size:11px}
+  .slot .who{font-size:13px;color:var(--slate);font-weight:600;margin-top:6px}
+  .slot.break{opacity:.72}
+  .slot.break .name{font-weight:550;font-size:14.5px}
+  .tag{
+    display:inline-block;margin-top:6px;margin-bottom:2px;font-size:11px;font-weight:700;
+    letter-spacing:.05em;text-transform:uppercase;
+    background:#E7EDF4;color:var(--ink-soft);padding:3px 9px;border-radius:99px;
+  }
+  .slot .body > .tag:first-child{margin-top:0;margin-bottom:5px}
+  .tag.plenary{background:var(--navy);color:var(--gold)}
+  .tag.workshop{background:#F4EEDF;color:var(--gold-deep)}
+
+  /* ---------- Speakers ---------- */
+  .speaker{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    margin-bottom:12px;overflow:hidden;
+  }
+  .sp-head{
+    display:flex;align-items:center;gap:14px;padding:14px;width:100%;
+    background:none;border:none;text-align:left;cursor:pointer;
+  }
+  .sp-photo{
+    flex:0 0 62px;width:62px;height:62px;border-radius:50%;
+    object-fit:cover;background:#DFE8F1;
+  }
+  .sp-name{font-weight:700;font-size:15.5px;line-height:1.25}
+  .sp-role{font-size:13px;color:var(--ink-soft);margin-top:3px}
+  .chev{flex:0 0 auto;color:var(--blue-soft);font-size:13px;transition:transform .2s}
+  .speaker.open .chev{transform:rotate(180deg)}
+  .sp-bio{display:none;padding:0 16px 16px;font-size:14.5px;color:var(--ink-soft)}
+  .speaker.open .sp-bio{display:block}
+  .sp-bio p{margin:0 0 10px}
+  .sp-bio p:last-child{margin-bottom:0}
+
+  /* ---------- Workshops ---------- */
+  .wgroup{margin-bottom:18px}
+  .wgroup > h3{font-size:14px;font-weight:700;color:var(--navy);margin:0 0 8px}
+  .wgroup > h3 span{font-weight:500;color:var(--ink-soft)}
+  .wcard{
+    background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);
+    border-radius:12px;padding:13px 15px;margin-bottom:9px;
+  }
+  .wcard .wtop{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-deep)}
+  .wcard .wtitle{font-weight:650;font-size:15px;margin-top:3px}
+  .wcard .wwhere{font-size:13px;color:var(--ink-soft);margin-top:4px}
+  .wcard .wwhere::before{content:"\1F4CD  ";font-size:11px}
+  .wcard .wwho{font-size:13px;color:var(--slate);font-weight:600;margin-top:4px}
+  .wcard .wdesc{font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+
+  /* ---------- Info rows ---------- */
+  .rows{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .row{display:flex;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);font-size:14.5px}
+  .row:last-child{border-bottom:none}
+  .row .k{flex:0 0 106px;color:var(--ink-soft);font-weight:600;font-size:13.5px}
+  .row .v{flex:1;min-width:0}
+  .todo{color:var(--amber);font-style:italic}
+
+  /* Map figures */
+  .mapfig{margin:0 0 14px;background:var(--paper);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden}
+  .mapfig img{width:100%;display:block}
+  .mapfig figcaption{padding:11px 14px 13px;font-size:13.5px;color:var(--ink-soft);
+    border-top:1px solid var(--line)}
+
+  ul.tidy{margin:8px 0 0;padding-left:20px;font-size:14.5px;color:var(--ink-soft)}
+  ul.tidy li{margin-bottom:6px}
+
+  .contact{margin-top:12px;border-top:1px solid var(--line);padding-top:11px}
+  .contact div{display:flex;gap:10px;font-size:14.5px;padding:3px 0}
+  .contact span{flex:0 0 54px;color:var(--ink-soft);font-weight:600;font-size:13.5px}
+  .contact a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--line)}
+  .contact a.todo{color:var(--amber);font-style:italic}
+
+  /* profile + ask links */
+  .profile{
+    display:inline-block;margin-top:4px;font-size:13.5px;font-weight:650;
+    color:var(--blue);text-decoration:none;border-bottom:1px solid var(--line);
+  }
+  .profile::after{content:" \2197";color:var(--gold-deep)}
+
+  /* Q&A session list */
+  .qlist{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}
+  .qrow{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .qrow:last-child{border-bottom:none}
+  .qrow .qwhen{flex:0 0 62px;font-size:12px;font-weight:700;color:var(--gold-deep);line-height:1.3}
+  .qrow .qwhat{flex:1;min-width:0;font-size:14.5px;font-weight:600;line-height:1.3}
+  .qrow .qwhat small{display:block;font-weight:500;color:var(--ink-soft);font-size:12.5px;margin-top:2px}
+  .qrow .ask{margin-top:0;flex:0 0 auto}
+  .qday{
+    background:var(--navy);color:var(--gold);font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;
+  }
+
+  /* Sponsors */
+  .sponsors{max-width:620px;margin:0 auto;padding:6px 16px 0;text-align:center}
+  .sponsors h2{
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:700;margin:0 0 12px;
+  }
+  .sponsor-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .sponsor-grid a{
+    flex:1 1 160px;max-width:250px;background:var(--paper);border:1px solid var(--line);
+    border-radius:14px;padding:16px 18px;display:flex;align-items:center;justify-content:center;
+  }
+  .sponsor-grid img{width:100%;height:auto;max-height:64px;object-fit:contain}
+
+  .venue-name{
+    display:inline-block;font-weight:700;font-size:17px;color:var(--navy);
+    text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:1px;
+  }
+  .venue-name::after{content:" \2197";font-size:13px;color:var(--gold-deep);}
+
+  .foot{
+    text-align:center;font-size:12.5px;color:var(--ink-soft);line-height:1.65;
+    max-width:620px;margin:8px auto 0;padding:20px 16px 22px;
+    border-top:1px solid var(--line);
+  }
+  .foot a{color:var(--blue)}
+
+  /* ---------- Bottom nav ---------- */
+  nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    display:flex;background:rgba(255,255,255,.96);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-top:1px solid var(--line);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .nav-inner{display:flex;width:100%;max-width:660px;margin:0 auto}
+  nav button{
+    flex:1;background:none;border:none;cursor:pointer;
+    padding:9px 2px 8px;display:flex;flex-direction:column;align-items:center;gap:3px;
+    color:var(--ink-soft);font-size:9.5px;font-weight:600;letter-spacing:0;
+  }
+  nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9;
+    stroke-linecap:round;stroke-linejoin:round}
+  nav button{position:relative}
+  nav button.on{color:var(--navy)}
+  nav button.on::before{
+    content:"";position:absolute;top:0;left:22%;right:22%;height:2.5px;
+    background:var(--gold);border-radius:0 0 3px 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-inner">
+    <div class="h-eyebrow">Cashmere Presbyterian Church</div>
+    <div class="h-title">AI <span>&amp;</span> Humanity Conference 2026</div>
+    <div class="h-sub">Ethics, Faith &amp; Human Flourishing</div>
+    <div class="h-meta">Friday 28 August – Saturday 29 August 2026 &middot; Christchurch</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ AGENDA ============ -->
+<section class="view active" id="v-agenda">
+ <div class="agenda-grid">
+
+  <!-- Left column: programme -->
+  <div class="agenda-col">
+    <!-- Poster banner. Files: banner.webp (small) with banner.jpg fallback. -->
+    <div class="banner-wrap" id="banner-wrap">
+      <picture>
+        <source srcset="banner.webp" type="image/webp">
+        <img class="banner" id="banner" src="banner.jpg"
+             alt="Cashmere Presbyterian Church alongside a circuit-board human profile and the Christchurch skyline">
+      </picture>
+      <div class="banner-strip" aria-hidden="true">
+        <span title="Ethical AI">&#9878;</span>
+        <span title="Faith &amp; Wisdom">&#10013;</span>
+        <span title="Human Flourishing">&#128101;</span>
+        <span title="Community &amp; Hope">&#9825;</span>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Please note:</strong> sessions at this conference will be recorded and made available afterwards. The workshops are recorded too, so you can watch the one you did not attend.
+    </div>
+
+    <div class="note">
+      <strong>Plenary motif:</strong> “The gap(s) between narratives about AI and the reality of AI”
+    </div>
+
+    <div class="dayswitch">
+      <button class="on" data-day="fri">Friday<small>28 Aug &middot; evening</small></button>
+      <button data-day="sat">Saturday<small>29 Aug &middot; full day</small></button>
+    </div>
+
+    <!-- Friday -->
+    <div class="day on" id="d-fri">
+      <div class="card" style="padding:8px 16px">
+        <div class="slot">
+          <div class="time">5:30 PM</div>
+          <div class="body"><div class="name"><strong>Registration &amp; Welcome</strong></div></div>
+        </div>
+        <div class="slot">
+          <div class="time">6:00 PM</div>
+          <div class="body"><div class="name">Welcome &amp; Karakia</div>
+            <div class="where">Church auditorium</div>
+            <div class="who">Conference Host / Local Minister</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">6:15 PM</div>
+          <div class="body">
+            <div class="name">Plenary 1 &middot; Artificial Intelligence &amp; Us? Exploring the AI landscape around us</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb"><em>What do we mean when we talk about AI? How did we get to where we are? What might the future hold?</em></div>
+            <div class="who">Stephen Garner</div>
+            <div class="aud">[For a General Audience]</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">7:00 PM</div>
+          <div class="body"><div class="name">Q&amp;A — open floor questions</div>
+            <div class="where">Church auditorium</div>
+            <div class="who">Stephen Garner, Matthew Galloway &amp; Emma Humphrey</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">7:40 PM</div>
+          <div class="body">
+            <div class="name">Plenary 2 &middot; AI &amp; Being Human?</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb"><em>A reflection on AI and being human, and what it might mean to live in a world with AI.</em></div>
+            <div class="who">Stephen Garner</div>
+            <div class="aud">[For a General Audience including theological reflection]</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">8:30 PM</div>
+          <div class="body"><div class="name"><strong>Open Discussion &amp; Networking</strong></div>
+            <div class="blurb">Light supper provided.</div>
+            <div class="where">Served in the Rata Lounge</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">9:00 PM</div>
+          <div class="body"><div class="name"><strong>Evening session ends</strong></div></div>
+        </div>
+      </div>
+
+      <h2 class="section">Refreshments — Friday</h2>
+      <div class="card">
+        <p>Light supper at 8:30 PM.</p>
+      </div>
+    </div>
+
+    <!-- Saturday -->
+    <div class="day" id="d-sat">
+      <div class="card" style="padding:8px 16px">
+        <div class="slot">
+          <div class="time">8:30 AM</div>
+          <div class="body"><div class="name"><strong>Doors open</strong></div>
+            <div class="blurb">Morning tea and coffee on arrival.</div>
+            <div class="where">Served in the Rata Lounge</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">9:00 AM</div>
+          <div class="body"><div class="name">Welcome &amp; Opening Reflection</div>
+            <div class="where">Church auditorium</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">9:15 AM</div>
+          <div class="body">
+            <div class="name">Plenary 3 &middot; Tell me a story…</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb"><em>The stories we tell about AI meet the reality of AI in the everyday world. Where are the gaps between the two, and how does that shape our hope for and experience of AI?</em></div>
+            <div class="who">Matthew Galloway</div>
+            <div class="aud">[For a General Audience]</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:00 AM</div>
+          <div class="body"><div class="name"><strong>Morning tea — 30 minutes</strong></div>
+            <div class="where">Served in the Rata Lounge</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">10:30 AM</div>
+          <div class="body"><div class="name">Workshops — Session A</div>
+            <div class="blurb">Choose one on the day.</div>
+            <div class="wopt"><strong>A1 — AI Self Defence</strong><em class="wroom">Rata Lounge</em><span>Emma Humphrey</span></div>
+            <div class="wopt"><strong>A2 — AI and the Spiritual Life</strong><em class="wroom">Church auditorium</em><em class="wnote">Facilitated discussion for those wanting to explore the spiritual and ethical dimensions of AI.</em><span>Stephen Garner</span></div>
+            <span class="tag workshop">Choose one</span></div>
+        </div>
+        <div class="slot">
+          <div class="time">11:30 AM</div>
+          <div class="body"><div class="name">Workshops — Session B</div>
+            <div class="blurb">Choose one on the day.</div>
+            <div class="wopt"><strong>B1 — AI for Learning and Research</strong><em class="wroom">Rata Lounge</em><span>Kathryn MacCallum</span></div>
+            <div class="wopt"><strong>B2 — Using AI well: a process to help you</strong><em class="wroom">Church auditorium</em><em class="wnote">Facilitated discussion about a values-led process for negotiating your use of AI.</em><span>Stephen Garner</span></div>
+            <span class="tag workshop">Choose one</span></div>
+        </div>
+        <div class="slot">
+          <div class="time">12:30 PM</div>
+          <div class="body"><div class="name"><strong>Lunch</strong></div>
+            <div class="blurb">Catered.</div>
+            <div class="where">Served in the Rata Lounge</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">1:30 PM</div>
+          <div class="body">
+            <div class="name">Panel Q&amp;A</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb">Structured panel with attendee questions collected throughout the day, covering a range of topics and issues.</div>
+            <div class="who">Matthew Galloway, Stephen Garner &amp; Kathryn MacCallum + Conference host</div>
+            <div class="aud">[For a General Audience including theological reflection]</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">2:30 PM</div>
+          <div class="body"><div class="name"><strong>Afternoon tea</strong></div>
+            <div class="where">Served in the Rata Lounge</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">3:00 PM</div>
+          <div class="body">
+            <div class="name">Plenary 4 &middot; Drawing the AI threads together</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb"><em>Bringing the themes from plenaries 1–3 together and offering some thoughts on going forward from here.</em></div>
+            <div class="who">Matthew Galloway &amp; Stephen Garner</div>
+            <div class="aud">[For a General Audience including theological reflection]</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">3:45 PM</div>
+          <div class="body"><div class="name">Closing Reflections</div>
+            <div class="where">Church auditorium</div>
+            <div class="blurb">Summary of key takeaways, next steps, resource list distributed.</div>
+            <div class="who">Conference Host</div></div>
+        </div>
+        <div class="slot">
+          <div class="time">4:00 PM</div>
+          <div class="body"><div class="name"><strong>Conference closes</strong></div></div>
+        </div>
+      </div>
+
+      <h2 class="section">Refreshments — Saturday</h2>
+      <div class="card">
+        <p>Morning and afternoon tea; light lunch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right column: about the conference -->
+  <aside class="about-col">
+    <h2 class="section">Four themes</h2>
+    <div class="pillars">
+      <div class="pillar"><div class="p-ico">&#9878;</div><div class="p-txt">Ethical AI</div></div>
+      <div class="pillar"><div class="p-ico">&#10013;</div><div class="p-txt">Faith &amp; Wisdom</div></div>
+      <div class="pillar"><div class="p-ico">&#128101;</div><div class="p-txt">Human Flourishing</div></div>
+      <div class="pillar"><div class="p-ico">&#9825;</div><div class="p-txt">Community &amp; Hope</div></div>
+    </div>
+  </aside>
+
+ </div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section class="view" id="v-speakers">
+  <div class="note">Tap a speaker to read their full biography.</div>
+
+  <div class="speaker">
+    <button class="sp-head">
+      <img class="sp-photo" alt="Dr Stephen Garner"
+        src="https://images.humanitix.com/i/edfc0921-d880-434c-a778-ba31842b985a.jpg@responsive-500.webp">
+      <div style="flex:1;min-width:0">
+        <div class="sp-name">Dr Stephen Garner</div>
+        <div class="sp-role">Senior Research Fellow, Laidlaw College</div>
+      </div>
+      <div class="chev">&#9662;</div>
+    </button>
+    <div class="sp-bio">
+      <p>Dr Stephen Garner is a Senior Research Fellow at Laidlaw College, New Zealand's largest interdenominational Christian college. He holds a PhD from the University of Auckland, an MSc in Computer Science, and worked extensively in the information technology sector before entering theological studies.</p>
+      <p>This rare dual background — as both a technologist and a theologian — makes him an exceptionally well-suited keynote for an audience spanning faith and non-faith communities.</p>
+      <a class="profile" href="https://www.laidlaw.ac.nz/staff/stephen-garner/" target="_blank" rel="noopener">Laidlaw College profile</a>
+    </div>
+  </div>
+
+  <div class="speaker">
+    <button class="sp-head">
+      <img class="sp-photo" alt="Dr Matthew Galloway"
+        src="https://images.humanitix.com/i/fffbdb8c-0351-4bb3-901e-a1f4efe99c0c.webp@responsive-500.webp">
+      <div style="flex:1;min-width:0">
+        <div class="sp-name">Dr Matthew Galloway</div>
+        <div class="sp-role">Learning Designer for the Ethical Use of AI, Victoria University of Wellington</div>
+      </div>
+      <div class="chev">&#9662;</div>
+    </button>
+    <div class="sp-bio">
+      <p>Dr Matthew Galloway is the Learning Designer for the Ethical Use of AI at the Centre for Academic Development, Victoria University of Wellington. His role sits at the intersection of education, technology and ethics — specifically designing frameworks and workshops that help people engage AI tools responsibly, accurately and critically.</p>
+      <p>He is actively engaged in applied AI ethics and has led workshops on ethical AI use in higher education contexts.</p>
+      <a class="profile" href="http://matthew-galloway.co.nz/profile/" target="_blank" rel="noopener">matthew-galloway.co.nz</a>
+    </div>
+  </div>
+
+  <div class="speaker">
+    <button class="sp-head">
+      <img class="sp-photo" alt="Professor Kathryn MacCallum"
+        src="https://images.humanitix.com/i/d3647c2a-d387-45c1-9549-774406c054dd.png@responsive-500.webp">
+      <div style="flex:1;min-width:0">
+        <div class="sp-name">Professor Kathryn MacCallum</div>
+        <div class="sp-role">Professor of Education; Co-director, UC Digital Futures Lab</div>
+      </div>
+      <div class="chev">&#9662;</div>
+    </button>
+    <div class="sp-bio">
+      <p>Professor of Education and co-director of the UC Digital Futures Lab, Kathryn MacCallum is recognised in Aotearoa and abroad for her leadership of research and teaching in AI literacy and assessment.</p>
+      <p>Her perspective on how learners and educators understand, use, critique and govern AI systems foregrounds Indigenous perspectives and addresses gaps in dominant global AI narratives that often marginalise the cultural, ethical and relational dimensions of learning.</p>
+      <a class="profile" href="https://profiles.canterbury.ac.nz/Kathryn-MacCallum" target="_blank" rel="noopener">University of Canterbury profile</a>
+    </div>
+  </div>
+
+  <div class="speaker">
+    <button class="sp-head">
+      <img class="sp-photo" alt="Emma Humphrey"
+        src="https://images.humanitix.com/i/0c7195e9-53dd-458e-9734-b932c3f541a4.jpg@responsive-500.webp">
+      <div style="flex:1;min-width:0">
+        <div class="sp-name">Emma Humphrey</div>
+        <div class="sp-role">AI Safety Specialist, educator &amp; social entrepreneur</div>
+      </div>
+      <div class="chev">&#9662;</div>
+    </button>
+    <div class="sp-bio">
+      <p>Emma Humphrey is an AI Safety Specialist, educator and social entrepreneur dedicated to helping organisations and communities navigate the rapid evolution of artificial intelligence safely, ethically and resiliently — equipping society with the critical thinking, processes and tools necessary to harness technology responsibly without losing sight of human safety and ethics.</p>
+      <p>Her work addresses pressing contemporary issues such as over-trust in AI models and automation bias, cybersecurity vulnerabilities, and threats to Māori data sovereignty.</p>
+      <p>Her career in data science is rooted in an academic background in Physics and Applied Mathematics, with hands-on expertise as an AI consultant for the UK Home Office. Emma shares practical case studies and forward-looking insights to help everyday people and businesses build resilience against over 1,700 identified AI risks.</p>
+      <a class="profile" href="https://www.techstep.nz/portfolio/emma-humphrey-ai-safety-specialist/" target="_blank" rel="noopener">TechStep profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKSHOPS ============ -->
+<section class="view" id="v-workshops">
+  <div class="note">
+    <strong>Choose your workshops on the day</strong> — no need to book ahead.
+    Optional: bring your own device.
+  </div>
+
+  <div class="wgroup">
+    <h3>Session A <span>&middot; Saturday 10:30 AM</span></h3>
+    <div class="wcard">
+      <div class="wtop">Workshop A1</div>
+      <div class="wtitle">AI Self Defence</div>
+      <div class="wwhere">Rata Lounge</div>
+      <div class="wwho">Emma Humphrey</div>
+    </div>
+    <div class="wcard">
+      <div class="wtop">Workshop A2</div>
+      <div class="wtitle">AI and the Spiritual Life</div>
+      <div class="wwhere">Church auditorium</div>
+      <div class="wdesc">Facilitated discussion for those wanting to explore the spiritual and ethical dimensions of AI.</div>
+      <div class="wwho">Stephen Garner</div>
+    </div>
+  </div>
+
+  <div class="wgroup">
+    <h3>Session B <span>&middot; Saturday 11:30 AM</span></h3>
+    <div class="wcard">
+      <div class="wtop">Workshop B1</div>
+      <div class="wtitle">AI for Learning and Research</div>
+      <div class="wwhere">Rata Lounge</div>
+      <div class="wwho">Kathryn MacCallum</div>
+    </div>
+    <div class="wcard">
+      <div class="wtop">Workshop B2</div>
+      <div class="wtitle">Using AI well: A process to help you</div>
+      <div class="wwhere">Church auditorium</div>
+      <div class="wdesc">Facilitated discussion about a values-led process for negotiating your own use of AI.</div>
+      <div class="wwho">Stephen Garner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VENUE ============ -->
+<section class="view" id="v-venue">
+  <h2 class="section">Venue</h2>
+  <div class="card">
+    <a class="venue-name" href="https://www.cashmerechurch.org.nz/" target="_blank" rel="noopener">Cashmere Presbyterian Church</a>
+    <div style="color:var(--ink-soft);font-size:14.5px;margin-top:4px">
+      Corner Dyers Pass Road &amp; MacMillan Avenue<br>Cashmere, Christchurch 8022, New Zealand
+    </div>
+    <div class="contact">
+      <div><span>Phone</span><a href="tel:+6433327129">(03) 332 7129</a></div>
+      <div><span>Email</span><a href="mailto:office@cashmerechurch.org.nz">office@cashmerechurch.org.nz</a></div>
+      <div><span>Web</span><a href="https://www.cashmerechurch.org.nz/" target="_blank" rel="noopener">cashmerechurch.org.nz</a></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:12px">
+      “The Stone Church on the Hill” has served its community in Christchurch for nearly 100 years —
+      a centre for worship and celebration, and a hub for community events.
+    </p>
+  </div>
+
+  <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Cashmere%20Presbyterian%20Church%2C%20Cashmere%2C%20Christchurch" target="_blank" rel="noopener">
+    Show the church in Maps
+  </a>
+
+  <h2 class="section">Venue plan</h2>
+  <figure class="mapfig">
+    <a href="venue-plan.jpg" target="_blank" rel="noopener">
+      <picture>
+        <source srcset="venue-plan.webp" type="image/webp">
+        <img src="venue-plan.jpg" alt="Venue plan showing the church auditorium, Rata Lounge, foyer, toilets and entrances, with the Friday and Saturday programmes">
+      </picture>
+    </a>
+    <figcaption>Tap the plan to open it full size.</figcaption>
+  </figure>
+
+  <h2 class="section">Parking</h2>
+  <div class="note">
+    <strong>Parking is very limited.</strong> Please allow extra time and be prepared to park
+    on a nearby street and walk a short distance.
+  </div>
+  <figure class="mapfig">
+    <picture>
+      <source srcset="map-parking.webp" type="image/webp">
+      <img src="map-parking.jpg" alt="Map showing the reserved no-parking frontage on MacMillan Avenue outside Cashmere Presbyterian Church">
+    </picture>
+    <figcaption>
+      The red strips are reserved parking, directly outside the church on that side of the road
+      only. The blue arrow shows the walk to the Hackthorne Road bus stop.
+    </figcaption>
+  </figure>
+  <h2 class="section">Coming by bus</h2>
+  <div class="card">
+    <p>Metro <strong>Route 1 (Blue Line)</strong> runs to Cashmere roughly every 30 minutes,
+      via the Bus Interchange, Sydenham and Princess Margaret Hospital. The nearest stop is at
+      Dyers Pass Road and <strong>Hackthorne Road</strong>, about a 15-minute walk from the church.</p>
+    <p style="font-size:14.5px"><strong><em>NB Friday: the last bus back leaves Cashmere
+      at 7:34 PM.</em></strong></p>
+    <p style="font-size:13.5px;color:var(--ink-soft)">Route 1 does run close to midnight, but only as
+      far as <strong>Princess Margaret Hospital</strong> on Cashmere Road.</p>
+  </div>
+
+  <h2 class="section">Plan your trip</h2>
+  <a class="btn secondary" href="https://go.metroinfo.co.nz/mtbp/en-gb/journey-planner" target="_blank" rel="noopener">
+    Metro journey planner
+  </a>
+  <a class="btn secondary" href="https://www.metroinfo.co.nz/timetables/1-rangiora-cashmere/" target="_blank" rel="noopener">
+    Route 1 (Blue Line) timetable
+  </a>
+  <a class="btn secondary" href="https://www.google.com/maps/dir/?api=1&amp;origin=Cashmere%20Presbyterian%20Church%2C%20Cashmere%2C%20Christchurch&amp;destination=Dyers%20Pass%20Rd%20and%20Hackthorne%20Rd%2C%20Cashmere%2C%20Christchurch&amp;travelmode=walking" target="_blank" rel="noopener">
+    Walking route to the bus stop
+  </a>
+
+  <h2 class="section">Fact sheet</h2>
+  <div class="rows">
+    <div class="row"><div class="k">Dates</div><div class="v">Fri 28 Aug, 6:00–9:00 PM<br>Sat 29 Aug, 9:00 AM–4:00 PM</div></div>
+    <div class="row"><div class="k">Registration</div><div class="v">Friday from 5:30 PM<br>Saturday doors open 8:30 AM</div></div>
+    <div class="row"><div class="k">Parking</div><div class="v">Very limited — see the parking map above. The church frontage is reserved.</div></div>
+    <div class="row"><div class="k">Public transport</div><div class="v">Metro <strong>Route 1 (Blue Line)</strong> to Cashmere, about every 30 minutes.<br>Nearest stop: <strong>Hackthorne Road</strong> — about a 15-minute walk.<br>Last bus from Cashmere: 7:34 PM weekdays, 7:04 PM Saturday.</div></div>
+    <div class="row"><div class="k">Wi-Fi</div><div class="v todo">To confirm — network name and password</div></div>
+    <div class="row"><div class="k">Toilets</div><div class="v">Please see the sign in the foyer</div></div>
+    <div class="row"><div class="k">Rooms</div><div class="v">Plenaries, the Q&amp;A and the panel are in the <strong>church auditorium</strong>, along with workshops <strong>A2</strong> and <strong>B2</strong>.<br>Workshops <strong>A1</strong> and <strong>B1</strong>, and all refreshments, are in the <strong>Rata Lounge</strong>.</div></div>
+    <div class="row"><div class="k">First aid</div><div class="v">Please visit the Welcome Desk</div></div>
+    <div class="row"><div class="k">Recording</div><div class="v">Sessions will be recorded and will be made available after the conference. The workshops are recorded too, so you can watch the one you did not attend.</div></div>
+    <div class="row"><div class="k">What to bring</div><div class="v">Optional: your own device for workshops</div></div>
+  </div>
+
+  <h2 class="section">Links</h2>
+  <a class="btn secondary" href="https://events.humanitix.com/ai-and-humanity-conference/tickets" target="_blank" rel="noopener">Registration &amp; tickets</a>
+  <a class="btn secondary" href="mailto:office@cashmerechurch.org.nz?subject=AI%20%26%20Humanity%20Conference%20enquiry">Email us — office@cashmerechurch.org.nz</a>
+
+
+</section>
+
+</main>
+
+  <section class="sponsors">
+    <h2>With thanks to our sponsors</h2>
+    <div class="sponsor-grid">
+      <a href="https://www.hopefuneralschristchurch.co.nz/" target="_blank" rel="noopener">
+        <img src="sponsor-hope.png" alt="Hope Funerals Christchurch">
+      </a>
+      <a href="https://www.presbyterian.org.nz/for-parishes/press-go" target="_blank" rel="noopener">
+        <img src="sponsor-pressgo.png" alt="PressGo, Presbyterian Church of Aotearoa New Zealand">
+      </a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <strong style="color:var(--navy)">AI &amp; Humanity Conference 2026</strong><br>
+    Hosted by Cashmere Presbyterian Church<br>
+    Corner Dyers Pass Road &amp; MacMillan Avenue, Cashmere, Christchurch 8022<br>
+    <a href="tel:+6433327129">(03) 332 7129</a> &nbsp;·&nbsp;
+    <a href="mailto:office@cashmerechurch.org.nz">office@cashmerechurch.org.nz</a><br>
+    <a href="https://www.cashmerechurch.org.nz/" target="_blank" rel="noopener">cashmerechurch.org.nz</a><br>
+    <span style="display:inline-block;margin-top:10px">Sessions and workshops will be recorded and made available after the conference.</span><br>
+    <span style="display:inline-block;margin-top:4px">This app was developed using AI.</span>
+  </footer>
+
+<nav>
+ <div class="nav-inner">
+  <button class="on" data-view="v-agenda">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M8 3v3M16 3v3M3 10h18"/></svg>
+    Agenda
+  </button>
+  <button data-view="v-speakers">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.7"/><path d="M4.5 20.5c0-4.1 3.4-6.5 7.5-6.5s7.5 2.4 7.5 6.5"/></svg>
+    Speakers
+  </button>
+  <button data-view="v-workshops">
+    <svg viewBox="0 0 24 24"><path d="M4 6.5h16M4 12h16M4 17.5h10"/></svg>
+    Workshops
+  </button>
+  <button data-view="v-venue">
+    <svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    Venue
+  </button>
+ </div>
+</nav>
+
+<script>
+(function(){
+  // Tab navigation
+  var navBtns = document.querySelectorAll('nav button');
+  navBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      navBtns.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+      document.getElementById(btn.dataset.view).classList.add('active');
+      window.scrollTo(0,0);
+    });
+  });
+
+  // Day switch
+  var dayBtns = document.querySelectorAll('.dayswitch button');
+  dayBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      dayBtns.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      document.querySelectorAll('.day').forEach(function(d){ d.classList.remove('on'); });
+      document.getElementById('d-' + btn.dataset.day).classList.add('on');
+    });
+  });
+
+  // Default to Saturday once Friday evening has passed
+  var now = new Date();
+  if (now.getFullYear() === 2026 && now.getMonth() === 7 && now.getDate() >= 29) {
+    var satBtn = document.querySelector('.dayswitch button[data-day="sat"]');
+    if (satBtn) satBtn.click();
+  }
+
+  // Speaker accordions
+  document.querySelectorAll('.sp-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Hide the whole banner block if the image files are missing
+  var banner = document.getElementById('banner');
+  var bannerWrap = document.getElementById('banner-wrap');
+  if (banner && bannerWrap) {
+    banner.addEventListener('error', function(){ bannerWrap.style.display = 'none'; });
+  }
+
+  // Hide broken speaker photos gracefully
+  document.querySelectorAll('.sp-photo').forEach(function(img){
+    img.addEventListener('error', function(){ img.style.visibility = 'hidden'; });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "AI & Humanity Conference 2026",
+  "short_name": "AI & Humanity",
+  "description": "Agenda, speakers, workshops and venue information for the AI & Humanity Conference, Cashmere Presbyterian Church, Christchurch, 28-29 August 2026.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF2F7",
+  "theme_color": "#0B2440",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
