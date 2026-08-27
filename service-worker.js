@@ -1,6 +1,6 @@
 /* AI & Humanity Conference 2026 — offline cache
    Bump CACHE on every deploy, or returning phones keep the old page. */
-const CACHE = 'ai2026-v2';
+const CACHE = 'ai2026-v4';
 
 const ASSETS = [
   './',
