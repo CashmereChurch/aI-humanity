@@ -1,5 +1,21 @@
 # Version 2 — 27 August 2026
 
+## Speaker titles (added after the first v2 upload)
+
+Titles now appear on every agenda slot and workshop card, not just the Speakers tab:
+
+- **Dr** Stephen Garner
+- **Dr** Matthew Galloway
+- **Professor** Kathryn MacCallum
+- **Emma Humphrey** — no title (confirmed by Luca, 27 Aug)
+
+Speaker biographies were left alone so the prose still reads correctly.
+Offline cache bumped again to `ai2026-v5`.
+
+> **Still to fix:** page 1 of `Signs for AI\01-agenda-A3.docx` says "Dr Emma Humphrey".
+> Page 2 and the app both say "Emma Humphrey". Page 1 needs correcting before printing.
+
+
 This folder is **version 2** of the conference app. The live version is in `..\publish\`
 and is unchanged. Nothing here is deployed until you upload it.
 
