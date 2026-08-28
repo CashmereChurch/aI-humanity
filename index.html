@@ -138,6 +138,16 @@
   }
   .note strong{color:var(--navy)}
 
+  /* Feedback link + button */
+  a[data-feedback-link]{color:var(--blue);font-weight:600;text-decoration:underline;
+    text-underline-offset:2px;white-space:nowrap}
+  .btn.feedback-link{
+    display:block;margin-top:14px;text-align:center;
+    background:var(--gold);color:#2A2004;border:1px solid var(--gold-deep);
+    font-weight:700;text-decoration:none;white-space:normal;
+  }
+  a[data-feedback-link].hidden{display:none}
+
   .btn{
     display:block;width:100%;text-align:center;text-decoration:none;
     background:var(--navy);color:#fff;font-weight:650;
@@ -352,8 +362,9 @@
   nav button{
     flex:1;background:none;border:none;cursor:pointer;
     padding:9px 2px 8px;display:flex;flex-direction:column;align-items:center;gap:3px;
-    color:var(--ink-soft);font-size:9.5px;font-weight:600;letter-spacing:0;
+    color:var(--ink-soft);font-size:9px;font-weight:600;letter-spacing:-.01em;
   }
+  @media (max-width:360px){ nav button{font-size:8.5px;padding-left:0;padding-right:0} }
   nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9;
     stroke-linecap:round;stroke-linejoin:round}
   nav button{position:relative}
@@ -401,6 +412,7 @@
 
     <div class="note">
       <strong>Please note:</strong> Sessions and workshops will be recorded and will be made available after the conference.
+      <a data-feedback-link href="#" target="_blank" rel="noopener">Tell us how it went &rarr;</a>
     </div>
 
     <div class="note">
@@ -666,7 +678,7 @@
       <div class="wtop">Workshop A1</div>
       <div class="wtitle">AI self defence</div>
       <div class="wwhere">Rata Lounge</div>
-
+      <div class="wdesc">Practical self-defence against AI harms:</div>
       <div class="wtopics">
 
         <ul>
@@ -821,7 +833,7 @@
     <div class="row"><div class="k">Toilets</div><div class="v">Off the foyer</div></div>
     <div class="row"><div class="k">Rooms</div><div class="v">Plenaries, the Q&amp;A and the panel are in the <strong>Church Auditorium</strong>, along with workshops <strong>A2</strong> and <strong>B2</strong>.<br>Workshops <strong>A1</strong> and <strong>B1</strong>, and all refreshments, are in the <strong>Rata Lounge</strong>.</div></div>
     <div class="row"><div class="k">First aid</div><div class="v">Please visit the Welcome Desk</div></div>
-    <div class="row"><div class="k">Recording</div><div class="v">Sessions and workshops will be recorded and will be made available after the conference.</div></div>
+    <div class="row"><div class="k">Recording</div><div class="v">Sessions and workshops will be recorded and will be made available after the conference. <a data-feedback-link href="#" target="_blank" rel="noopener">Tell us how it went &rarr;</a></div></div>
 
    
 <!--
@@ -834,6 +846,33 @@
   <a class="btn secondary" href="mailto:office@cashmerechurch.org.nz?subject=AI%20%26%20Humanity%20Conference%20enquiry">Email us — office@cashmerechurch.org.nz</a>
 
 
+</section>
+
+<section class="view" id="v-feedback">
+  <h2 class="section">Feedback</h2>
+
+  <div class="card">
+    <p style="font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">How did we do?</p>
+    <p style="font-size:14.5px;color:var(--ink-soft)">
+      Thank you for joining us. Your feedback shapes what we do next, so please tell us honestly
+      what worked and what did not. It takes about two minutes.
+    </p>
+    <p style="font-size:14.5px;color:var(--ink-soft)">
+      Every question is optional, and you do not have to give your name.
+    </p>
+    <a class="btn feedback-link" data-feedback-link href="#" target="_blank" rel="noopener">Give feedback</a>
+  </div>
+
+  <div class="note">
+    <strong>Prefer paper?</strong> There are printed feedback forms at the welcome desk, and a box
+    to leave them in on your way out.
+  </div>
+
+  <div class="card">
+    <p style="font-size:14.5px;color:var(--ink-soft)">
+      Responses are seen only by the organising committee and are used to plan future events.
+    </p>
+  </div>
 </section>
 
 </main>
@@ -857,7 +896,7 @@
     <a href="tel:+6433327129">(03) 332 7129</a> &nbsp;·&nbsp;
     <a href="mailto:office@cashmerechurch.org.nz">office@cashmerechurch.org.nz</a><br>
     <a href="https://www.cashmerechurch.org.nz/" target="_blank" rel="noopener">cashmerechurch.org.nz</a><br>
-    <span style="display:inline-block;margin-top:10px">Sessions and workshops will be recorded and will be made available after the conference.</span><br>
+    <span style="display:inline-block;margin-top:10px">Sessions and workshops will be recorded and will be made available after the conference. <a data-feedback-link href="#" target="_blank" rel="noopener">Tell us how it went &rarr;</a></span><br>
     <span style="display:inline-block;margin-top:4px">This app was developed using AI.</span>
   </footer>
 
@@ -879,11 +918,35 @@
     <svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
     Venue
   </button>
+  <button data-view="v-feedback">
+    <svg viewBox="0 0 24 24"><path d="M20.5 15.5a2 2 0 0 1-2 2H8l-4.5 3.5v-14a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/><path d="M8.5 9.5h7M8.5 13h4.5"/></svg>
+    Feedback
+  </button>
  </div>
 </nav>
 
 <script>
+/* ------------------------------------------------------------------
+   FEEDBACK FORM LINK — paste your Microsoft Forms link between the
+   quotes below. That is the only line you need to change; it fills in
+   the Feedback tab and the three "Tell us how it went" links.
+   While it is left empty, every feedback link hides itself, so nothing
+   broken is ever shown to a delegate.
+   ------------------------------------------------------------------ */
+var FEEDBACK_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=kdqER142e06mL_2xfIznhqOliYxWOHFPpivhjX_tPZRUQ05BQ0xJVkdaVjRSNFlNMUxWWkJHWk9LUS4u";
+
 (function(){
+  // Feedback links
+  var fbLinks = document.querySelectorAll('[data-feedback-link]');
+  fbLinks.forEach(function(a){
+    if (FEEDBACK_URL) { a.href = FEEDBACK_URL; }
+    else { a.classList.add('hidden'); }
+  });
+  if (!FEEDBACK_URL) {
+    var tab = document.querySelector('nav button[data-view="v-feedback"]');
+    if (tab) { tab.style.display = 'none'; }
+  }
+
   // Tab navigation
   var navBtns = document.querySelectorAll('nav button');
   navBtns.forEach(function(btn){

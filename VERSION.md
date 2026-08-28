@@ -1,5 +1,22 @@
 # Version 2 — 27 August 2026
 
+## Feedback form link added (29 Aug 2026)
+
+`FEEDBACK_URL` in `index.html` now holds the live Microsoft Forms link. The Feedback tab
+and the three "Tell us how it went" links are therefore visible and working; previously
+they hid themselves because the URL was empty. Offline cache bumped to `ai2026-v9`.
+
+## A1 lead-in line (28 Aug 2026)
+
+Workshop A1 on the Workshops tab now carries the lead-in
+**"Practical self-defence against AI harms:"** above its bullet list, matching the
+wording already used in the Saturday agenda summary. Offline cache bumped to `ai2026-v7`.
+
+The same line was added to `Signs for AI\01-agenda-A3-v2.docx` — on page 1 (the combined
+Friday/Saturday agenda) and on the workshops page. It was **deliberately not added to the
+Saturday-only agenda page**: that table is already full to the page edge, and one more line
+pushes the Session A/B cards off the sheet entirely.
+
 ## Workshop A2 rewritten + agenda spacing (28 Aug 2026)
 
 The A2 outline in `Signs for AI\01-agenda-A3.docx` no longer matches the marked-up sheet
