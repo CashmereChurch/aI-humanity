@@ -21,6 +21,11 @@ thoughts.
 The one-line A2 and B2 summaries on the Saturday agenda were reworded to match.
 A1 and B1 were checked against the docx and already agreed — not touched.
 
+In B2, "From experience and questions to ongoing reflective action" and "Trying the
+process out" are now **sub-points nested under "Negotiating AI: A process"**, not
+top-level bullets. Sub-points render indented with a hollow gold ring instead of a
+solid dot (new `.wcard .wtopics li > ul` rules). "Final thoughts" stays top-level.
+
 Agenda rows: `.slot` padding raised from `14px 0` to `19px 0` so the text sits clear of the
 dividing rules; the first row keeps a tighter `6px` top so the list doesn't start low.
 

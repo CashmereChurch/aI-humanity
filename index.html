@@ -261,6 +261,13 @@
     content:"";position:absolute;left:2px;top:.72em;
     width:5px;height:5px;border-radius:50%;background:var(--gold);
   }
+  /* nested sub-points */
+  .wcard .wtopics li > ul{margin-top:1px;padding-left:15px}
+  .wcard .wtopics li > ul > li{font-size:13px;padding-top:1px;padding-bottom:1px}
+  .wcard .wtopics li > ul > li::before{
+    width:4px;height:4px;top:.78em;
+    background:transparent;border:1px solid var(--gold);
+  }
 
   /* ---------- Info rows ---------- */
   .rows{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
@@ -680,12 +687,12 @@
       <div class="wtop">Workshop A2</div>
       <div class="wtitle">AI and the spiritual life</div>
       <div class="wwhere">Church Auditorium</div>
-      <div class="wdesc">Facilitated discussion for those wanting to explore the spiritual and ethical dimensions of AI.</div>
+      <div class="wdesc">Facilitated discussion for those wanting to explore spiritual and ethical dimensions of AI.</div>
       <div class="wtopics">
         <ul>
           <li>How are we using AI in our spiritual lives and contexts?</li>
           <li>What starting points might shape that?</li>
-          <li>Thinking about AI and worship, preaching, devotional life and more</li>
+          <li>Thinking about AI and worship, preaching, devotional life, and other things</li>
           <li>Final thoughts</li>
         </ul>
       </div>
@@ -718,10 +725,13 @@
       <div class="wtopics">
         <ul>
           <li>How are you using AI?</li>
-          <li>How do you decide when, how and why to use AI?</li>
-          <li>Negotiating AI: a process</li>
-          <li>From experience and questions to ongoing reflective action</li>
-          <li>Trying the process out</li>
+          <li>How do you decide when, how, and why to use AI?</li>
+          <li>Negotiating AI: A process
+            <ul>
+              <li>From experience and questions to ongoing reflective action</li>
+              <li>Trying the process out</li>
+            </ul>
+          </li>
           <li>Final thoughts</li>
         </ul>
       </div>
