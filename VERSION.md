@@ -1,5 +1,31 @@
 # Version 2 — 27 August 2026
 
+## Workshop A2 rewritten + agenda spacing (28 Aug 2026)
+
+The A2 outline in `Signs for AI\01-agenda-A3.docx` no longer matches the marked-up sheet
+the previous A2 topics came from, so the app now follows the docx:
+
+| Was (from the marked-up sheet) | Now (from `01-agenda-A3.docx`) |
+|---|---|
+| Does AI enhance or threaten spiritual formation? | How are we using AI in our spiritual lives and contexts? |
+| Intersection of faith & digital technology | What starting points might shape that? |
+| Grief care and spiritual encounters through AI | Thinking about AI and worship, preaching, devotional life and more |
+| — | Final thoughts |
+
+**B2 was rewritten the same way** (28 Aug), replacing "identifying your core values /
+impact of technological change / developing a plan…" with the docx outline: how are you
+using AI · how do you decide when, how and why · negotiating AI: a process · from
+experience and questions to ongoing reflective action · trying the process out · final
+thoughts.
+
+The one-line A2 and B2 summaries on the Saturday agenda were reworded to match.
+A1 and B1 were checked against the docx and already agreed — not touched.
+
+Agenda rows: `.slot` padding raised from `14px 0` to `19px 0` so the text sits clear of the
+dividing rules; the first row keeps a tighter `6px` top so the list doesn't start low.
+
+Offline cache bumped to `ai2026-v6`.
+
 ## Speaker titles (added after the first v2 upload)
 
 Titles now appear on every agenda slot and workshop card, not just the Speakers tab:
